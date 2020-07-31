@@ -1,11 +1,6 @@
-local APIDump = {}
-function DumpAPI()
-    local Hash = game:HttpGet("http://setup.roblox.com/versionQTStudio")
-    local APIDump = game:HttpGet("http://setup.roblox.com/"..Hash.."-API-Dump.json")
-
-    APIDump = game:GetService("HttpService"):JSONDecode(APIDump)
-    return true
-end
+local Hash = game:HttpGet("http://setup.roblox.com/versionQTStudio")
+local APIDump = game:HttpGet("http://setup.roblox.com/"..Hash.."-API-Dump.json")
+APIDump = game:GetService("HttpService"):JSONDecode(APIDump)
 
 local MemberCache = {}
 function GetMembers(Class)
@@ -82,6 +77,5 @@ end
 return {
     GetClassProperties = GetClassProperties,
     FetchClassEntry = FetchClassEntry,
-    GetMembers = GetMembers,
-    DumpAPI = DumpAPI
+    GetMembers = GetMembers
 }
